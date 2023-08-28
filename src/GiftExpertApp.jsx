@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
-import { GridGIf } from "./components/GridGIf";
+import { AddCategory } from "./components";
+import { GridGIf } from "./components";
 
 export const GiftExpertApp = () => {
   const [categories, setCategories] = useState(["One Punch"]);
 
-  function onAddCategory( newCatgeory ) {
-    if( categories.includes( newCatgeory ) ) return;
-    setCategories([...categories, newCatgeory]);
+  function onAddCategory( newCategory ) {
+    if( categories.includes( newCategory ) ) return;
+    setCategories([newCategory, ...categories]);
   }
 
   return (

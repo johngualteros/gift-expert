@@ -1,28 +1,21 @@
-import { useEffect, useState } from "react";
-import { getGifs } from "../helpers/getGifs"
+/* eslint-disable react-hooks/exhaustive-deps */
+import GiftItem from "./GiftItem";
+import { useFetchGifs } from "../hooks/useFetchGifs";
 
+// eslint-disable-next-line react/prop-types
 export const GridGIf = ({category}) => {  
-  const [images, setImages] = useState([]);
-  const setImagesWithGifs = async () => {
-    const newImages = await getGifs(category);
-    setImages(newImages);
-  }
-  useEffect(() => {
-    setImagesWithGifs();
-  }, [])
+  const { images, loading } = useFetchGifs(category);
+  
+  if( loading ) return <p>Loading...</p>;
+
   return (
     <>
         <h3>{category}</h3>
-        <ol>
+        <div className="card-grid">
           {
-            images.map( ({id, title, url}) => (
-              <li key={id}>
-                <p>{title}</p>
-                <img src={url} alt="" />
-              </li>
-            ))
+            images.map( img => <GiftItem key={img.id} {...img} /> )
           }
-        </ol>
+        </div>
     </>
   )
 }

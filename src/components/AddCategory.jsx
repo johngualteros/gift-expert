@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// eslint-disable-next-line react/prop-types
 export const AddCategory = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState("");
 
