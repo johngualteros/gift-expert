@@ -18,8 +18,6 @@ describe('GiftExpertApp Component', () => {
         fireEvent.change(input, { target: { value: "Saitama" } });
         fireEvent.submit(form);
 
-        screen.debug();
-     
-        // expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(2);
+        expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(2);
       });
 })
