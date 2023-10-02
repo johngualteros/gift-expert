@@ -1,3 +1,5 @@
+import { PropTypes } from 'prop-types'
+
 // eslint-disable-next-line react/prop-types
 function GiftItem({title, url}) {
   return (
@@ -6,6 +8,11 @@ function GiftItem({title, url}) {
         <p>{title}</p>
     </div>
   )
+}
+
+GiftItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 }
 
 export default GiftItem
